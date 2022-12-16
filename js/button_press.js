@@ -1,4 +1,7 @@
 function buttonclick(obj) {
+    if(document.getElementById("display").value == "undefined" || document.getElementById("display").value == "Infinity") {
+        clear_all();
+    }
     if(obj.className == "number") {
         document.getElementById("display").value += obj.innerHTML;
     } 
@@ -24,5 +27,7 @@ function clear_all() {
 }
 
 function calculate() {
+    document.getElementById("memory").value += document.getElementById("display").value;
     document.getElementById("display").value = math.evaluate(document.getElementById("display").value);
+    document.getElementById("memory").value += " = " + document.getElementById("display").value + "\n";
 }
